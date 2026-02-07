@@ -1,7 +1,17 @@
 [build]
-  base = "apps/web"
-  publish = "dist"
-  command = "npm run build"
+  base = "/"
+  publish = "apps/web/dist"
+  command = "npm run build --workspaces"
+
+[functions]
+  external_node_modules = ["@nestjs/microservices", "@nestjs/websockets", "class-transformer", "class-validator", "cache-manager"]
+  node_bundler = "esbuild"
+  directory = "apps/backend/src/handlers"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
 
 [[redirects]]
   from = "/*"
