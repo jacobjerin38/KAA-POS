@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Trash2, User, StickyNote } from 'lucide-react';
 import clsx from 'clsx';
 import { useCartStore } from '../../store/useCartStore';
@@ -12,7 +12,7 @@ import { ReceiptModal } from './ReceiptModal';
 import type { Order } from '../../types';
 
 export const CartPanel = () => {
-    const { items, removeItem, updateItemField, totals, clearCart } = useCartStore();
+    const { items, removeItem: _removeItem, updateItemField, totals, clearCart } = useCartStore();
     const { subtotal, tax, total: finalTotal } = totals();
     const { addSale, checkSession } = useSessionStore();
 

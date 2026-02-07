@@ -31,7 +31,7 @@ export const useCartStore = create<CartState>((set, get) => ({
     removeItem: (id) => set((state) => ({
         items: state.items.filter(i => i.cartItemId !== id)
     })),
-    updateQuantity: (id, delta) => set((state) => ({
+    updateQuantity: (id: string, delta: number) => set((state) => ({
         items: state.items.map(i => {
             if (i.cartItemId === id) {
                 const newQty = Math.max(0, i.quantity + delta);

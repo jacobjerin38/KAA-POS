@@ -9,7 +9,7 @@ interface NumpadProps {
     activeMode: 'QTY' | 'DISC' | 'PRICE';
 }
 
-export const Numpad: React.FC<NumpadProps> = ({ onInput, onDelete, onClear, onModeChange, activeMode }) => {
+export const Numpad: React.FC<NumpadProps> = ({ onInput, onDelete, onClear: _onClear, onModeChange, activeMode }) => {
     const keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '0'];
 
     return (
@@ -21,8 +21,8 @@ export const Numpad: React.FC<NumpadProps> = ({ onInput, onDelete, onClear, onMo
                         key={mode}
                         onClick={() => onModeChange(mode as any)}
                         className={`flex-1 py-2.5 text-xs font-bold rounded-md transition-all ${activeMode === mode
-                                ? 'bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white shadow-md'
-                                : 'bg-white text-[var(--color-text-muted)] hover:bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)]'
+                            ? 'bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white shadow-md'
+                            : 'bg-white text-[var(--color-text-muted)] hover:bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)]'
                             }`}
                     >
                         {mode === 'DISC' ? '% Disc' : mode}

@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSessionStore } from '../../store/useSessionStore';
 import { Button } from '../../components/ui/Button';
 import { ShieldAlert, LogOut, Banknote } from 'lucide-react';
 
 export const SessionModal = () => {
-    const { currentSession, openSession, closeSession } = useSessionStore();
+    const { currentSession, openSession } = useSessionStore();
     const [amount, setAmount] = useState('');
-    const [isOpen, setIsOpen] = useState(false); // Local modal state for "Closing" confirmation
 
     // If no session is open, force "Open Session" screen (acting as a blocker)
     if (!currentSession || currentSession.status === 'CLOSED') {

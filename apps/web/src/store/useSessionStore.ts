@@ -32,7 +32,7 @@ export const useSessionStore = create<SessionState>()(
                     status: 'OPEN'
                 }
             }),
-            closeSession: (closingBalance) => set((state) => {
+            closeSession: (_closingBalance) => set((state) => {
                 if (!state.currentSession) return {};
                 return {
                     currentSession: null, // Logic might vary: keep history? For now, reset current.
